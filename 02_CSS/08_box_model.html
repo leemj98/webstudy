@@ -6,15 +6,17 @@
   <title>Document</title>
 </head>
 <body>
+  
+
   <style>
-    /* 블록 요소는 width, height를 지정할 수 있다 */
+    /* 블록 요소는 width, height를 지정할 수 있다. */
     .wrap1 > div {
       width: 100px;
       height: 100px;
       border: 1px solid gray;
       background-color: lightgray;
     }
-    /* 인라인 요소는 width, height를 지정할 수 없다 */
+    /* 인라인 요소는 width, height를 지정할 수 없다. */
     .wrap1 > span {
       width: 100px;
       height: 100px;
@@ -31,6 +33,7 @@
 
   <hr>
 
+
   <style>
     /* 부모 */
     .wrap2 {
@@ -38,26 +41,24 @@
       height: 200px;
       border: 1px solid gray;
     }
-    /* 자식 : 부모 기준으로 % 값을 가질 수 있음 */
+    /* 자식 : 부모 기준으로 % 값을 가질 수 있다. */
     .wrap2 > .box1 {
       width: 100%;
       height: 50%;
       border: 1px solid crimson;
     }
-
-    /* 자식 : 부모보다 커지면 부모 영역 밖으로 나감 */
+    /* 자식 : 부모보다 커지면 부모 영역 밖으로 나간다. */
     .wrap2 > .box2 {
       width: 300px;
       height: 105px;
       border: 1px solid crimson;
     }
-
   </style>
-
   <div class="wrap2">
     <div class="box1">box1</div>
     <div class="box2">box2</div>
   </div>
+
 
   <hr>
 
@@ -92,6 +93,7 @@
     <div class="box2">box2</div>
     <div class="box3">box3</div>
   </div>
+
 
   <hr>
 
