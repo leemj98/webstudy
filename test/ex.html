@@ -48,6 +48,16 @@
    }
     })
 
+
+    $('#pw').keyup(function(){
+      if(this.value.length ===0){
+        $('#msg_pw').text('비밀번호를 입력하세요').addClass('warning');
+      } else {
+        $('#msg_pw').text('').removeClass('warning');
+      }
+
+    })
+
     
 
     $('#frm_login').submit(function(event){
@@ -56,6 +66,12 @@
         event.preventDefault(); // 서브밋 이벤트 막고
         return; //코드 진행도 막는다
       }
+      if($('#msg_pw').hasClass('warning')){ 
+        alert('비밀번호를 확인하세요');
+        event.preventDefault(); 
+        return; 
+      }
+
     })
 
 

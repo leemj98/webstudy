@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title> 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: Malgun Gothic, sans-serif;
+    }
+
+    header img {
+      display: block;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f6f7;
+      padding-top: 100px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+
+    .member {
+      padding-top: 30px;
+      padding-bottom: 10px;
+      display: flex;
+    }
+
+    .member p{
+      font-weight: bold;
+    }
+
+    .login {
+      height: 50px;
+      width: 460px;
+      max-width: 460px;
+      outline: 2px solid #007700;
+      margin-bottom: 10px;
+    }
+
+    .login:focus {
+      outline: 2px solid #ff8800;
+    }
+
+    form button {
+      height: 60px;
+      width: 460px;
+      max-width: 460px;
+      background-color: #007700;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+
+    form button:hover {
+      cursor: pointer;
+    }
+
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .l1 {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .l2 {
+      color: #807e7e;
+      font-size: 11px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .l3 {
+      height: 60px;
+      width: 100%;
+      max-width: 460px;
+      background-color: #007777;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .good {
+      color: #0000FF;
+      font-size: 14px;
+    }
+    .warning {
+      color: #FF0000;
+      font-size: 14px;
+    }
+  </style>
+
+
+  <div>
+    <header>
+      <a href="https://www.gdu.co.kr/main/main.html"><img src="https://www.gdu.co.kr/images/main/logo.png" alt=""></a>
+    </header>
+    <section>
+      <div class="member">
+       <p>※ 회원구분을 위해 체크해 주세요 </p>
+      <input type="radio" name="membership" value="s" id="student">
+      <label for="student">수강생</label>
+      <input type="radio" name="membership" value="m" id="member">
+      <label for="member">일반회원</label>
+      </div>
+
+
+      <div>
+        <form id="frm_login" method="post" action="/">
+          <div>
+            <input type="text" id="id" placeholder="아이디" class="login">
+            <div id="msg_id"></div>
+          </div>
+          <div>
+            <input type="password" id="pw" placeholder="비밀번호" class="login" >
+            <div id="msg_pw"></div>
+          </div>
+          <div>
+            <button type="submit">로그인</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+
+      <div class="box1">
+        <p class="l1">아직 회원이 아닌가요?</p>
+        <p class="l2">가입하면 다양한 서비스 이용이 가능합니다.</p>
+        <button onclick="location.href='javascript:void(0)'" class="l3">회원가입</button>
+      </div>
+
+      <div class="box2">
+        <p class="l1">아이디/비밀번호를 잊으셨나요?</p>
+        <p class="l2">간단하게 아이디/비밀번호를 찾을 수 있습니다.</p>
+        <button onclick="location.href='javascript:void(0)'" class="l3">아이디/비밀번호 찾기</button>
+      </div>
+
+    </footer>
+  </div>
+
+  <script>
+    $('#id').keyup(function(){
+   var regId = /^[A-Za-z][A-Za-z0-9-_]{3,}$/;
+   if(regId.test(this.value)){
+    $('#msg_id').text('정상적인 아이디입니다').addClass('good').removeClass('warning');
+   } else {
+    $('#msg_id').text('아이디는 4자 이상입니다.').addClass('warning').removeClass('good');
+   }
+    })
+
+
+    $('#pw').keyup(function(){
+      if(this.value.length ===0){
+        $('#msg_pw').text('비밀번호를 입력하세요').addClass('warning');
+      } else {
+        $('#msg_pw').text('').removeClass('warning');
+      }
+
+    })
+
+    
+
+    $('#frm_login').submit(function(event){
+      if(!$('#msg_id').hasClass('good')){ 
+        alert('아이디를 확인하세요');
+        event.preventDefault(); 
+        return;
+      }
+      if($('#msg_pw').hasClass('warning')){ 
+        alert('비밀번호를 확인하세요');
+        event.preventDefault(); 
+        return; 
+      }
+
+    })
+
+
+  </script>
+
+</body>
+</html>
